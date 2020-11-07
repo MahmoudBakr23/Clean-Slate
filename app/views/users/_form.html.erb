@@ -1,0 +1,12 @@
+<div class="container my-5">
+    <h1>Sign up</h1>
+    <%= form_for(@user, url: sign_up_path) do |f| %>
+        <div class="form-group">
+            <%= f.label :name, "Enter Your Name" %>
+            <%= f.text_field :name, class: "form-control" %>
+        </div>
+
+        <%= f.submit "Sign up", class: "btn btn-success" %>
+    <% end %>
+    <%= link_to  "Don't have account? Sign Up", login_path %>
+</div>

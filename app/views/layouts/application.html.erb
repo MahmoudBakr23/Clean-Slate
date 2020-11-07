@@ -16,6 +16,12 @@
   </head>
 
   <body>
+    <% flash.each do |type, message| %>
+      <%= content_tag :p, class: "animated fadeInDown m-0 text-center text-#{type} alert alert-#{type}" do -%>
+        <%= message %>
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <% end -%>
+    <% end %>
     <%= yield %>
   </body>
 </html>
