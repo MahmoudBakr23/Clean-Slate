@@ -22,6 +22,12 @@
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
       <% end -%>
     <% end %>
+    <nav class="navbar navbar-light text-secondary d-flex justify-content-between">
+        <h1 class="nav-item d-flex align-items-center m-0"><%= link_to "ArTtiCkleS.", root_path, class: "text-dark navbar-brand font-weight-bold m-0" %></h1>
+      <ul class="d-flex align-items-center list-unstyled m-0">
+        <%= navigation %>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>

@@ -14,3 +14,19 @@
  *= require_tree .
  *= require_self
  */
+
+ a {
+    text-decoration: none;
+    &:hover{
+       text-decoration: none;
+    }
+ }
+
+ nav {
+    border-bottom: 3px solid #555;
+
+    .navbar-brand {
+       border-bottom: 3px solid red;
+       padding: 0 1rem 0 1rem;
+    }
+ }
