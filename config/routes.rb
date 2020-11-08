@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get 'home/index'
   root 'home#index'
-  resources :articles, except: %i[index]
+  resources :articles, except: %i[index] do
+    resources :likes, only: %i[create destroy]
+  end
   resources :categories, only: %i[index show]
 end

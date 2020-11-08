@@ -22,6 +22,11 @@
             <%= f.label :category_list, "Insert a category name" %>
             <%= f.text_field :category_list, class: "form-control", placeholder: "Example 1, Example 2, ..." %>
         </div>
+        
+        <div class="form-group">
+            <%= f.label :image, "Upload an image" %>
+            <%= f.file_field :image %>
+        </div>
 
         <%= f.submit "Publish", class: "btn btn-success" %>
     <% end %>

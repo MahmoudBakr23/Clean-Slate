@@ -1,5 +1,10 @@
-<%= @article.title %>
-<%= @article.body %>
+<%= @article.title %><br />
+<%= @article.body %><br />
+<%= like_and_unlike(@article) %><br />
+<%= @article.likes.count %><br />
+<% @article.likes.each do |like| %>
+    <%= link_to  like.author.name, user_path %><br />
+<% end %>
 <% @article.categories.each do |c| %>
-<%= link_to  c.name, category_path(c) %>
+<%= link_to  c.name, category_path(c) %><br />
 <% end %>

@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   include SessionsHelper
   include ApplicationHelper
-  before_action :require_user
+  before_action :require_user, except: %i[show]
   before_action :set_article, only: %i[show edit update destroy]
   def show
     @categories = @article.categories.by_date
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
   private
   
   def article_params
-    params.require(:article).permit(:title, :body, :category_list)
+    params.require(:article).permit(:title, :body, :category_list, :image)
   end
 
   def categories_params

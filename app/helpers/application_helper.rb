@@ -20,4 +20,14 @@ module ApplicationHelper
 			flash[:danger] = "Login first"
 		end
 	end
+
+	def like_and_unlike(article)
+		like = Like.find_by(article: article, author: current_user)
+		if like
+			link_to('Unvote', article_like_path(id: like.id, article_id: article.id), method: :delete)
+		else
+			link_to('Vote', article_likes_path(article_id: article.id), method: :post)
+		end
+	end
+	
 end

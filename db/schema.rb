@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_034651) do
+ActiveRecord::Schema.define(version: 2020_11_08_060043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 2020_11_08_034651) do
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
@@ -39,6 +43,15 @@ ActiveRecord::Schema.define(version: 2020_11_08_034651) do
     t.index ["category_id"], name: "index_creatings_on_category_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["author_id"], name: "index_likes_on_author_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -48,4 +61,6 @@ ActiveRecord::Schema.define(version: 2020_11_08_034651) do
   add_foreign_key "articles", "users", column: "author_id"
   add_foreign_key "creatings", "articles"
   add_foreign_key "creatings", "categories"
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users", column: "author_id"
 end
