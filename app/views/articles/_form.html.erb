@@ -1,0 +1,28 @@
+<div class="container my-5">
+    <%= form_with(model: @article, local: true) do |f| %>
+        <div class="form-group">
+            <%= f.label :title, "Title" %>
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :body, "Body" %>
+            <%= f.text_area :body, class: "form-control" %>
+        </div>
+
+        <% unless @categories.nil? %>
+            <div class="form-group">
+                <%= f.label :category, "Title" %>
+                <%= f.select :category_id, @categories.collect {|c| [c.name, c.id]}, {:include_blank => 'Select Category'}, class: "form-control" %>
+            </div>
+        <% end %>
+
+        <p class="text-secondary">Didn't find what you need?</p>
+        <div class="form-group">
+            <%= f.label :category_list, "Insert a category name" %>
+            <%= f.text_field :category_list, class: "form-control", placeholder: "Example 1, Example 2, ..." %>
+        </div>
+
+        <%= f.submit "Publish", class: "btn btn-success" %>
+    <% end %>
+</div>

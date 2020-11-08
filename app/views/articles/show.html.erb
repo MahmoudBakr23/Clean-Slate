@@ -1,0 +1,5 @@
+<%= @article.title %>
+<%= @article.body %>
+<% @article.categories.each do |c| %>
+<%= link_to  c.name, category_path(c) %>
+<% end %>

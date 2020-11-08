@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_07_114254) do
+ActiveRecord::Schema.define(version: 2020_11_08_034651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "creatings", force: :cascade do |t|
+    t.bigint "article_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_creatings_on_article_id"
+    t.index ["category_id"], name: "index_creatings_on_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -21,4 +45,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_114254) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "articles", "users", column: "author_id"
+  add_foreign_key "creatings", "articles"
+  add_foreign_key "creatings", "categories"
 end

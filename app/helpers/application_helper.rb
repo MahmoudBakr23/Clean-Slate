@@ -13,4 +13,11 @@ module ApplicationHelper
 		end
 		out.join("|").html_safe
 	end
+
+	def require_user
+		if current_user.nil?
+			redirect_to login_path
+			flash[:danger] = "Login first"
+		end
+	end
 end

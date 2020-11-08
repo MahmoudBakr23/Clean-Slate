@@ -1,3 +1,5 @@
 <div class="container my-5 text-center">
-    <h1 class="display-4">AR<span class="text-info"> tt </span>ICKLES</h1>
+    <% @categories.each do |c| %>
+        <%= link_to c.name, category_path(c) %>    
+    <% end %>
 </div>
