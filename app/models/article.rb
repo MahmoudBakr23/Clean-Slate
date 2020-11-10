@@ -3,8 +3,8 @@ class Article < ApplicationRecord
   has_many :creatings
   has_many :categories, through: :creatings, dependent: :destroy
   has_many :likes, dependent: :destroy
-  validates :title, presence: true, length: {minimum:3, maximum:20}
-  validates :body, presence: true
+  validates :title, presence: true, length: {minimum:3, maximum:50}
+  validates :body, presence: true, length: {minimum:3}
 
   scope :by_most_recent, -> { order(created_at: :desc)}
 

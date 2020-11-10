@@ -1,6 +1,8 @@
 class LikesController < ApplicationController
     include SessionsHelper
+    include ApplicationHelper
     before_action :set_like_article
+    before_action :require_user
     def create
         @like = current_user.likes.new(article_id: @article.id)
         if @like.save

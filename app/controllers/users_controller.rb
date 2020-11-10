@@ -26,15 +26,7 @@ class UsersController < ApplicationController
 
   def edit; end
 
-  def update
-    if @user.update(user_params)
-      flash[:primary] = "Updated!"
-      redirect_to user_path(@user)
-    else
-      flash[:danger] = "Something went wrong!"
-      render 'edit'
-    end
-  end
+  def update; end
 
   def destroy
     @user = User.find(
