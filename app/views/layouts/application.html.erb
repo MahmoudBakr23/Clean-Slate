@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ArtTickles</title>
+    <title>Clean Slate</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -23,21 +23,30 @@
       <% end -%>
     <% end %>
     <nav class="navbar navbar-light text-secondary d-flex justify-content-between">
-        <h1 class="nav-item d-flex align-items-center m-0"><%= link_to "ArTtiCkleS.", root_path, class: "text-dark navbar-brand font-weight-bold m-0" %></h1>
-      <ul class="d-flex list-unstyled m-0 justify-content-center align-items-center">
-        <% Category.all.by_date.each do |c| %>
-          <%= link_to  c.name.capitalize, category_path(c), class: "nav-link text-secondary" %>
-        <% end %>
-      </ul>
-      <ul class="d-flex align-items-center list-unstyled m-0">
-        <li class="nav-item dropdown">
-          <h6 class="dropdown-toggle m-0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= show_user_name %></h6>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= navigation %>
-          </div>
-        </li>
-        <%= link_to  "Write an Article", new_article_path, class: "nav-link text-secondary" %>
-      </ul>
+        <h1 class="nav-item d-flex align-items-center m-0"><%= link_to "Clean Slate.", root_path, class: "text-dark navbar-brand font-weight-bold m-0" %></h1>
+        <div class="d-flex justify-content-around">
+          <ul class="d-flex align-items-center list-unstyled mx-lg-3 my-0 list-two">
+            <%= link_to  "Write an Article", new_article_path, class: "nav-link text-secondary" %>
+            <li class="nav-item dropdown">
+              <h6 class="dropdown-toggle m-0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= show_user_name %></h6>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= navigation %>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler ml-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="d-flex justify-content-end m-0 w-100">
+          <ul class="d-flex list-unstyled mx-5 my-0 align-items-center list-one">
+            <% Category.all.by_date.each do |c| %>
+              <%= link_to  c.name.capitalize, category_path(c), class: "nav-link text-secondary" %>
+            <% end %>
+          </ul>
+      </div>
+      </div>
     </nav>
     <%= yield %>
   </body>

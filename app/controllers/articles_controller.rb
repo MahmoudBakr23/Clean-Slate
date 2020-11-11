@@ -4,7 +4,17 @@ class ArticlesController < ApplicationController
   before_action :require_user, except: %i[show]
   before_action :set_article, only: %i[show edit update destroy]
   def show
-    @categories = @article.categories.by_date
+    @categoty_articles = []
+    # Category.all.by_date.each do |cat|
+    #   if cat.articles.include?(@article)
+    #     @article_categories << cat.articles
+    #   end
+    # end
+    Category.all.by_date.each do |cat|
+      cat.articles.each do |article|
+        @categoty_articles << article if cat.articles.include?(@article)
+      end
+    end
   end
 
   def new

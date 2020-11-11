@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   include SessionsHelper
   
-  def show; end
+  def show
+    @articles = @user.articles.by_most_recent
+  end
 
   def new
     @user = User.new

@@ -1,4 +1,13 @@
-<%= @category.name %>
-<% @articles.each do |a| %>
-<%= link_to  a.title, article_path(a) %><br />
-<% end %>
+<div class="container-fluid p-0 m-0 category-show">
+<h1 class="text-center headline"><%=@category.name.capitalize%>'s Articles</h1>
+    <div class="row m-0">
+        <% @articles.each do |article| %>
+            <div class="col-lg-4 col-md-6 col-xs-12 col-sm-12 p-0 c-show">
+                <div class="d-flex flex-column position-absolute ok">
+                    <%= link_to  article.title, article_path(article) %>
+                </div>
+                <%= image_tag article.image.url, class: "img-fluid category-image" %>
+            </div>
+        <% end %>
+    </div>
+</div>

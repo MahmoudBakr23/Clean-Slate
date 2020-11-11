@@ -25,7 +25,7 @@
         <% @categories.each do |cat| %>
             <% @articles.each do |a| %>
                 <% if cat.articles.last == a %>
-                    <div class="col-lg-3 category p-0">
+                    <div class="col-lg-3 col-md-6 category p-0">
                         <div class="d-flex flex-column position-absolute odd py-4">
                             <div class="name">
                                 <%= link_to  cat.name, category_path(cat), class: "text-uppercase font-weight-bold text-white" %>
