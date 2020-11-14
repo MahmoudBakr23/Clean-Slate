@@ -6,7 +6,7 @@
                 <div class="d-flex flex-column position-absolute ok">
                     <%= link_to  article.title, article_path(article) %>
                 </div>
-                <%= image_tag article.image, class: "img-fluid category-image" %>
+                <%= image_tag article.image.url, class: "img-fluid category-image" %>
             </div>
         <% end %>
     </div>
