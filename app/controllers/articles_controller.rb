@@ -24,7 +24,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
-    # @article.image.attach(params[:image])
     @category = Category.find_by(id: categories_params[:category_id])
     @article.categories << @category unless @category.nil?
     if @article.save
