@@ -8,7 +8,9 @@ class Article < ApplicationRecord
 
   scope :by_most_recent, -> { order(created_at: :desc)}
 
-  has_attached_file :image
+  has_attached_file :image,
+  :storage => :cloudinary,
+  :path => ':class/:id/:style/:filename'
   validates_attachment_content_type :image, content_type: ['image/jpg', 'image/jpeg', 'image/png']
   
   def category_list
