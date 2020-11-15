@@ -5,7 +5,7 @@
         <small class="ml-3">Author: <%= link_to @article.author.name, user_path(@article.author) %></small>
         </div>
         <div class="col-lg-12 p-0 main">
-            <%= image_tag @article.image.url %>
+            <%= image_tag @article.image.url, class:"img-fluid main_image" %>
         </div>
         <p class="lead text-dark font-weight-light ml-2"><%= @article.body %></p>
     </div>
@@ -35,7 +35,7 @@
                         <h5 class="ml-3 mt-5"><%= link_to a.categories.last.name, category_path(a.categories.last), class: "text-uppercase" %></h5>
                     </div>
                 </div>
-                <%= image_tag a.image.url %>
+                <%= image_tag a.image.url, class:"img-fluid more_image py-1" %>
             <% end %>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 see_more px-1">
@@ -49,7 +49,7 @@
                         <h5 class="ml-3 mt-5"><%= link_to  a.author.name, user_path(a.author) %></h5>
                     </div>
                 </div>
-                <%= image_tag a.image.url %>
+                <%= image_tag a.image.url, class:"img-fluid more_image py-1" %>
             <% end %>
         </div>
     </div>
