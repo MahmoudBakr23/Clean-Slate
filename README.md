@@ -1,24 +1,44 @@
-# README
+# Book Store
+ 
+**Social article creator rails application**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Built with
 
-Things you may want to cover:
+* Ruby 2.7.1p83
+* Rails 5.2.4.4
 
-* Ruby version
+## Live Link
 
-* System dependencies
+* https://arcane-everglades-66880.herokuapp.com/
 
-* Configuration
+## Getting Started
+* Clone the repo using this link https://github.com/MahmoudBakr23/Clean-Slate.git
+* cd Book-Store
+* Run the following comand lines in terminal:
+* bundle install
+* rails db:migrate
+* rails s
+* Then, go to localhost:3000 on your browser
 
-* Database creation
+## Authors
 
-* Database initialization
+👤 **Mahmoud**
 
-* How to run the test suite
+- Github: [@MahmoudBakr23](https://github.com/MahmoudBakr23)
 
-* Services (job queues, cache servers, search engines, etc.)
+- Linkedin: [Mahmoud Bakr](https://www.linkedin.com/in/m-bakr/)
 
-* Deployment instructions
+- Email: [contact on Gmail](mbakr6821@gmail.com)
 
-* ...
+##    Contributing
+
+Contributions, issues and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Eduonix
+- Brad Traversy
